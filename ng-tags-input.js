@@ -90,7 +90,7 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "tagsInput
 
         tagIsValid = function(tag) {
             var tagText = getTagText(tag);
-
+            onTagAdding({ $tag: tag });
             return tagText &&
                    tagText.length >= options.minLength &&
                    tagText.length <= options.maxLength &&
