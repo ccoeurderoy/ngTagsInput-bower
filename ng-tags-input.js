@@ -90,9 +90,7 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "tagsInput
 
         tagIsValid = function(tag) {
             var tagText = getTagText(tag);
-            onTagAdding({ $tag: tag });
-            return tagText &&
-                   tagText.length >= options.minLength &&
+            return tagText.length >= options.minLength &&
                    tagText.length <= options.maxLength &&
                    options.allowedTagsPattern.test(tagText) &&
                    !tiUtil.findInObjectArray(self.items, tag, options.keyProperty || options.displayProperty) &&
@@ -297,7 +295,7 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "tagsInput
                 },
                 invalid: null
             };
-    
+
             scope.getTagClasses = function(tag) {
               var classes = [];
               if(tag === tagList.selected){
@@ -309,7 +307,7 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "tagsInput
               }
                return classes;
              };
-             
+
             scope.track = function(tag) {
                 return tag[options.keyProperty || options.displayProperty];
             };
